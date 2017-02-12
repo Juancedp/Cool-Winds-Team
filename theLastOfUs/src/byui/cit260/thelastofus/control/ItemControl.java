@@ -10,10 +10,14 @@ package byui.cit260.thelastofus.control;
  * @author Karl
  */
 public class ItemControl {
-    public Itemtype ( int gun, int stone, int knife){
-        if (gun = 0) { 
-                return stone;}
-        if (stone = 0) {
-                return knife;}
-
+    public String Itemtype ( int gun, int stone, int knife){
+        if (gun == 0 ) { 
+                return "knife";}
+        if (stone == 0) {
+                return "knife";}
+        if (gun == 0 && stone ==0){
+            return "knife";
+        }
+return "gun";
+}
 }
