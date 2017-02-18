@@ -5,17 +5,40 @@
  */
 package thelastofus;
 
+import byui.cit260.thelastofus.model.Game;
+import byui.cit260.thelastofus.model.Player;
+import byui.cit260.thelastofus.view.StartProgramView;
+
 /**
  *
  * @author Karl
  */
 public class TheLastOfUs {
 
+    private static Game currentGame = null;
+    private static Player player = null;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        StartProgramView StartProgramView   = new StartProgramView();
+        StartProgramView.displayStartProgramView();
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        TheLastOfUs.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        TheLastOfUs.player = player;
     }
     
 }
