@@ -103,20 +103,16 @@ public HelpMenuView(){
         gameMenu.displayMenu();
     }
 
-    private void restartExistingGame() {
-        System.out.println("*** restartExistingGame function called ***");
-    }
-
-    private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu function called ***");
-    }
 
     private void whatIsTheGoalOfTheGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("The goal of this game is survival.");
+        
     }
 
     private void howToMove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("You have various abandoned vehicles to choose from,"
+                + "but remember, you need resources in order to survive."
+                + "Zombies don't need food, but you do.");
     }
 
     private void estimatingTheAmountOfResources() {
