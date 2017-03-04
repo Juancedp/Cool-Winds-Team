@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this licnse header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -33,6 +33,7 @@ public class MainMenuView extends View{
                 + "\nR - Restart existing game"
                 + "\nH - Help! I keep dying! "
                 + "\nQ – Quit  (you wimp...) "
+                + "\nE - End the game"
                 + "\n--------------------------------------");
     }
         
@@ -52,6 +53,9 @@ public class MainMenuView extends View{
                 break;
             case "H": //display help menu
                 this.displayHelpMenu();
+                break;
+            case "E": //EndGameView
+                this.displayEndgameView(); 
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -79,6 +83,12 @@ public class MainMenuView extends View{
         HelpMenuView helpMenu = new HelpMenuView();
         //display help menu
         helpMenu.display();
+    }
+
+    private void displayEndgameView() {
+        EndGameView endview = new EndGameView();
+        //display endgameview
+        endview.display();
     }
     
 }
