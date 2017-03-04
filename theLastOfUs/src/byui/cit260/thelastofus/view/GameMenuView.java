@@ -11,53 +11,21 @@ import java.util.Scanner;
  *
  * @author Karl
  */
-public class GameMenuView {
-    private String menu;
+public class GameMenuView extends View {
+    
     public GameMenuView(){
-        this.menu = "\nR – Search for resources"
+        super("\nR – Search for resources"
                 + "\nV - View map "
                 + "\nE - Explore Location "
                 + "\nM – Move to new location "
                 + "\nH – Check your health conditions "
-                + "\nQ – Save and Quit Game";
+                + "\nQ – Save and Quit Game");
         
     }
     
 
-    public void displayMenu() {
-         boolean done = false;
-        //set flag to not done
-        do{//prompt for and get the input
-            String menuOption = this.getMenuOption();
-         
-  if (menuOption.toUpperCase().equals("Q"))
-      //user wants to quit
-      // saveGame();
-   return; //exit the game
-     //do the action and display the next view 
-     done = this.doAction(menuOption);
-        }
- while (!done); 
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //get infile keyboard
-        String value = "";//get input
-        boolean valid = false; //initialize to false
-        while(!valid){ //loop while not valid
-        System.out.println("\n"+this.menu);
-        value = keyboard.nextLine(); //get next line typed in
-        value = value.trim(); //trim out leading/trailing blanks
-        if(value.length()< 1 ){//value is blank
-           System.out.println("\nInvalid value: value cannot be blank");
-           continue;
-        }
-        break; //end loop
-        }
-        return value; //return value entered
-    }
-
-    private boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
         switch (choice){
@@ -98,7 +66,7 @@ public class GameMenuView {
 
     private void moveLocation() {
         DifferentLocationView moveView = new DifferentLocationView();
-        moveView.displayMenu();
+        moveView.display();
     }
 
     private void healthCheck() {
