@@ -11,7 +11,7 @@ package byui.cit260.thelastofus.control;
  */
 public class MapControl {
     
-    public double differentLocation(double distance, double resources){
+    public static double differentLocation(double distance, double resources){
        if (distance == 0){
 		return -1;
        }
