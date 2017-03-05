@@ -37,16 +37,20 @@ public class VehicleView extends View {
         }
              return true;
         }
-    private void chooseCar(){
+
+    private void chooseCar() {
         System.out.println("Choose the car or perrish");
+      
     }
-    private void chooseTruck(){
+
+    private void chooseTruck() {
         System.out.println("If you choose the truck you...");
     }
-    private void chooseMotorcycle(){
-        System.out.println("Choose the motorcycle and keep running");
+
+    private void chooseMotorcycle() {
+       System.out.println("Choose the motorcycle and keep runing");
+   
     }
+    
 }
 
-
-   
