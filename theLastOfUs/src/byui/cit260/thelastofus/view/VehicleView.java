@@ -13,30 +13,39 @@ public class VehicleView extends View {
     VehicleView(){
      super("\nYou have three types of different vehicles, "
              + "\nchoose one before you lose your brain"
-             + "\nCa - Choose Car"
-             + "\nTr - Choose Truck"
-             + "\nMo - Choose Motorcycle");  
+             + "\nC - Choose Car"
+             + "\nT - Choose Truck"
+             + "\nM - Choose Motorcycle");  
 }
     @Override
     public boolean doAction(String value){
         value = value.toUpperCase();
         
         switch (value){
-            case "Ca": //Choose car
+            case "C": //Choose car
                 this.chooseCar();
                 break;
-            case "Tr": //Choose truck
+            case "T": //Choose truck
                 this.chooseTruck();
                 break;
-            case "Mo": //Choose motorcycle 
+            case "M": //Choose motorcycle 
                 this.chooseMotorcycle();
                 break;
              default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break; 
         }
-             return false;
+             return true;
         }
+    private void chooseCar(){
+        System.out.println("Choose the car or perrish");
+    }
+    private void chooseTruck(){
+        System.out.println("If you choose the truck you...");
+    }
+    private void chooseMotorcycle(){
+        System.out.println("Choose the motorcycle and keep running");
+    }
 }
 
 
