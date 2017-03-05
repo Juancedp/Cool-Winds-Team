@@ -13,15 +13,15 @@ import java.util.Scanner;
  *
  * @author Karl
  */
-public class StartProgramView {
+public class StartProgramView extends View{
     
-    private String promptMessage;
     
     public StartProgramView() {
-        this.promptMessage = "\nPlease enter your name:";
+        super("\nPlease enter your name:");
         this.displayBanner();
         //prompt user to enter name
         //display banner
+        
     }
 
     private void displayBanner() {
@@ -46,36 +46,9 @@ public class StartProgramView {
         );
     }
 
-    public void displayStartProgramView() {
-        boolean done = false;
-        do{
-            String playerName = getPlayerName();
-            if (playerName.toUpperCase().equals("Q"))
-                return;
-            done =this.doAction(playerName);
-           }
-        while(!done);
-    }
-
-    private String getPlayerName() {
-        Scanner keyboard = new Scanner(System.in); //get infile keyboard
-        String value = "";//get input
-        boolean valid = false; //initialize to false
-        while(!valid){ //loop while not valid
-        System.out.println("\n"+this.promptMessage);
-        
-        value = keyboard.nextLine(); //get next line typed in
-        value = value.trim(); //trim out leading/trailing blanks
-        if(value.length()< 1 ){//value is blank
-           System.out.println("\nInvalid value: value cannot be blank");
-           continue;
-        }
-        break; //end loop
-        }
-        return value; //return value entered
-    }
-
-    private boolean doAction(String playerName) {
+   
+    @Override
+    public boolean doAction(String playerName) {
         if (playerName.length() < 2){
   System.out.println("Invalid name: The name must be > 1 character"); 
   return false;
@@ -98,7 +71,7 @@ public class StartProgramView {
         //create mainmenu view object
         MainMenuView mainMenuView = new MainMenuView();
         //display main menu
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
     
     

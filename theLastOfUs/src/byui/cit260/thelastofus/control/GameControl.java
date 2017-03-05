@@ -28,8 +28,13 @@ return player;
          
     }
 
-    public static void createNewGame(Player player) {
+    public static int createNewGame(Player player) {
        System.out.println("*** createNewGame function called ***");
+       return 1;
+    }
+
+    public static void saveGame() {
+        System.out.println("****saveGame function called ***");
     }
     
 }

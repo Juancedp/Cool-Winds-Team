@@ -22,7 +22,7 @@ public class TheLastOfUs {
      */
     public static void main(String[] args) {
         StartProgramView StartProgramView   = new StartProgramView();
-        StartProgramView.displayStartProgramView();
+        StartProgramView.display();
     }
 
     public static Game getCurrentGame() {
