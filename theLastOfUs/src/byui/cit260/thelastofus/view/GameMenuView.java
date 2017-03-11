@@ -5,7 +5,12 @@
  */
 package byui.cit260.thelastofus.view;
 
+import byui.cit260.thelastofus.model.Game;
+import byui.cit260.thelastofus.model.Item;
+import byui.cit260.thelastofus.model.Location;
+import byui.cit260.thelastofus.model.Map;
 import java.util.Scanner;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -27,13 +32,15 @@ public class GameMenuView extends View {
     @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
-        
+        Game game = TheLastOfUs.getCurrentGame();
+        Map map =game.getMap();
+        Location location=new Location();
         switch (choice){
             case "R": //search for resources
                 this.searchResources();
                 break;
             case "V": //view the map
-                this.viewMap();
+                this.viewMap(map,location);
                 break;
             case "E": //explore current location
                 this.explore();
@@ -53,11 +60,43 @@ public class GameMenuView extends View {
     }
 
     private void searchResources() {
-        System.out.println("*** searchResources function called ***");
+        StringBuilder line;
+        Game game =TheLastOfUs.getCurrentGame();
+        Item[] items = game.getItems();
+        
+        System.out.println("\n  Resources available");
+        line = new StringBuilder("                                 ");
+        line.insert(0, "Description");
+        line.insert(20, "In Stock");
+        System.out.println(line.toString());
+        
+        //for each item
+        for (Item item : items){
+            line = new StringBuilder("                               ");
+            line.insert(0, item.getDescription());
+            line.insert(23, item.getQuantity());
+            //display
+            System.out.println(line.toString());
+        }
     }
 
-    private void viewMap() {
-        System.out.println("*** viewMap function called ***");
+    private void viewMap(Map map, Location location) {
+        
+        Location[][] locations = map.getLocation();
+             
+       System.out.println("Zombie map");
+       
+       for (Location[] row:locations){
+           System.out.println("---------------------------------------------------");
+           System.out.println("\n"+"1");
+           for(Location[] column:locations){
+               System.out.println("|");
+               if(location.isVisited()){
+                   System.out.println("??");
+               }
+               System.out.println("|");
+           }
+       }
     }
 
     private void explore() {

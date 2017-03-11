@@ -66,10 +66,8 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
         //start new game
-        int value = GameControl.createNewGame(TheLastOfUs.getPlayer());
-        if (value < 0){
-            System.out.println("Error-failed to create new game");
-        }
+        GameControl.createNewGame(TheLastOfUs.getPlayer());
+        
         //display game menu
         IntroductionView intro = new IntroductionView();
         intro.display();
