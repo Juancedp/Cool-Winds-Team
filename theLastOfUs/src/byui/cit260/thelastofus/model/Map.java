@@ -21,18 +21,18 @@ public class Map implements Serializable {
     }
 
     public Map(int noOfRows, int noOfColumns){
-        if(noOfRows<1 || noOfColumns<1){
+        if(noOfRows < 1 || noOfColumns < 1){
             System.out.println("The number of rows and columns must be > zero");
             return;
         }
-        this.noOfRows =noOfRows;
+        this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
         
         //create array for location objects
         this.locations = new Location[noOfRows][noOfColumns];
         
-        for(int row=0; row<noOfRows; row++){
-            for(int column=0; column<noOfColumns; column++){
+        for(int row = 0; row < noOfRows; row++){
+            for(int column = 0; column < noOfColumns; column++){
                 //create new location object
                 Location location = new Location();
                 location.setColumn(column);

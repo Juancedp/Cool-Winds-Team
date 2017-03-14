@@ -17,7 +17,7 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private Scene scene;
-    private ArrayList<Character> characters;
+    private ArrayList<Character>characters;
     public Scene getScene() {
         return scene;
     }

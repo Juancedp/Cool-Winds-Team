@@ -16,6 +16,12 @@ public class DifferentLocationView extends View {
     public DifferentLocationView(){
     super("\nEnter the distance you want to travel:");
     }
+
+    /**
+     *
+     * @param value
+     * @return
+     */
     @Override
      public boolean doAction(String value) {
          double distance = Double.parseDouble(value);
