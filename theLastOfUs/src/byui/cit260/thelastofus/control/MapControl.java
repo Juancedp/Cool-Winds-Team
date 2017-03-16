@@ -8,6 +8,7 @@ package byui.cit260.thelastofus.control;
 import byui.cit260.thelastofus.model.Map;
 import byui.cit260.thelastofus.model.Scene;
 import byui.cit260.thelastofus.model.SceneType;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,24 +16,36 @@ import byui.cit260.thelastofus.model.SceneType;
  */
 public class MapControl {
     
-    public static double differentLocation(double distance, double resources){
+    private static ArrayList<Double>distancesTraveled = new ArrayList<>();
+   
+   public static double adddistanceTraveled (double distance){
+       distancesTraveled.add(distance);
+       double total = 0;
+       for (Double distanceTotal :distancesTraveled ){
+             total += distanceTotal;
+       }
+       return total;
+           }
+    public static double[] differentLocation(double distance, double resources){
        if (distance == 0){
-		return -1;
+		return null;
        }
 	if (distance %10 !=0){
-		return -1;
+		return null;
         }
 	if (distance > 100){
-		return -1;
+		return null;
         }
 	if (resources < 4){
-		return -1;
+		return null;
         }
     double time=distance/60;
-return time;
+    double totalDistance = adddistanceTraveled(distance);
+    double timeDistance[]={time, totalDistance};
+    return timeDistance;
 
     }
-
+   
     static Map createMap() {
         //create map
         Map map = new Map(20,20);

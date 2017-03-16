@@ -20,8 +20,9 @@ public class DifferentLocationView extends View {
      public boolean doAction(String value) {
          double distance = Double.parseDouble(value);
             
-    double time = MapControl.differentLocation(distance, 5);
-     System.out.println("You made it. It took "+time+" hours");
+    double[] timeDistance = MapControl.differentLocation(distance, 5);
+     System.out.println("You made it. It took "+timeDistance[0]+" hours"
+             + "\nTotal Distance traveled : "+timeDistance[1]);
  return true;
     }
 
