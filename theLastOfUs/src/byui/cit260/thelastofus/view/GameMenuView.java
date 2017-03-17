@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.view;
 
+import static byui.cit260.thelastofus.control.ItemControl.additemsUsed;
 import byui.cit260.thelastofus.model.Game;
 import byui.cit260.thelastofus.model.Item;
 import byui.cit260.thelastofus.model.Location;
@@ -78,6 +79,8 @@ public class GameMenuView extends View {
             //display
             System.out.println(line.toString());
         }
+        double itemsRemained=additemsUsed(16);
+        System.out.println(itemsRemained);
     }
 
     private void viewMap(Map map, Location location) {
