@@ -5,32 +5,45 @@
  */
 package byui.cit260.thelastofus.control;
 
-/**
- *
+import java.util.ArrayList;
+
+public class VehicleControl{
+    
+
+private static ArrayList<Double>milesPerGalon = new ArrayList<>();
+ public static double milesPerGalon (double miles){
+         milesPerGalon.add(miles);
+         double total = 0; 
+         for (Double milestotal : milesPerGalon){
+         total += milestotal;
+         }
+         return total;
+ }
+ /*
  * @author Karl
  */
-public class VehicleControl {
-  public int fuelLevel(double gasused, double distanceTravel){
-      int startingMiles = 0;
+  public double milesPerGalon(int gasused, int milesTravel, int endMiles, int startMiles){
 
-        if (startingMiles == 0){
+        if (startMiles == 0){
          return -1;
     }
-      int endingMiles = 0;
-        if (endingMiles == 0){
+        if (endMiles == 0){
         return 1;
     }
-      int gallonused = 0;
-        if (gallonused == 0){
+        if (gasused == 0){
         return -1;
     }
-    //miles = end - start;
-   // miles travel = miles / gal
-   // Math.round(mpg * 100) / 100);
-   // Return miles travel per gallons.
-   return 0;
+   milesTravel = endMiles - startMiles;
+   int milesPerGalon = milesTravel / gasused;
+   //Return miles travel per gallons.
+   return milesPerGalon;
+   
+   
         }
+
 }
+    
+
 
 
 
