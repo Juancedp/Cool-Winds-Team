@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.MapControlException;
 import byui.cit260.thelastofus.model.Map;
 import byui.cit260.thelastofus.model.Scene;
 import byui.cit260.thelastofus.model.SceneType;
@@ -26,18 +27,23 @@ public class MapControl {
        }
        return total;
            }
-    public static double[] differentLocation(double distance, double resources){
+    public static double[] differentLocation(double distance, double resources) throws MapControlException{
        if (distance == 0){
-		return null;
+		throw new MapControlException("distance cannot be 0"
+                                             + "because the distance should be more than 0");
        }
 	if (distance %10 !=0){
-		return null;
+		throw new MapControlException ("distance must be multiple of 10"
+                                              +"should not be equal to 0");
         }
 	if (distance > 100){
-		return null;
+		throw new MapControlException ("distance should be less than 100"
+                                              +"must be multiple of 10"
+                                              +"should not be equal to 0");
         }
 	if (resources < 4){
-		return null;
+		throw new MapControlException ("resources should be more than 4"
+                                              +"should not be less than 4");
         }
     double time=distance/60;
     double totalDistance = adddistanceTraveled(distance);

@@ -45,7 +45,7 @@ public class IntroductionView extends View {
                             + "\nThis room is very messy, as if there was an"
                             + "intense struggle");
                     GameMenuView gameMenu = new GameMenuView();
-                     gameMenu.display();
+                                         gameMenu.display();
                      break;
                 case "B":
                     System.out.println("That was an unwise decision. When you"

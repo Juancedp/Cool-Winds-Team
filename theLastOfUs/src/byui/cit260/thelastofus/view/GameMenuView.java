@@ -6,11 +6,15 @@
 package byui.cit260.thelastofus.view;
 
 import static byui.cit260.thelastofus.control.ItemControl.additemsUsed;
+import byui.cit260.thelastofus.control.MapControl;
+import byui.cit260.thelastofus.exceptions.MapControlException;
 import byui.cit260.thelastofus.model.Game;
 import byui.cit260.thelastofus.model.Item;
 import byui.cit260.thelastofus.model.Location;
 import byui.cit260.thelastofus.model.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -18,6 +22,10 @@ import thelastofus.TheLastOfUs;
  * @author Karl
  */
 public class GameMenuView extends View {
+
+    static void disply() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public GameMenuView(){
         super("\nR – Search for resources"
@@ -46,8 +54,14 @@ public class GameMenuView extends View {
             case "E": //explore current location
                 this.explore();
                 break;
-            case "M": //move to new location
+            case "M": {
+            try {
+                //move to new location
                 this.moveLocation();
+            } catch (MapControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "H": //check health conditions
                 this.healthCheck();
@@ -106,7 +120,7 @@ public class GameMenuView extends View {
         System.out.println("*** explore function called ***");
     }
 
-    private void moveLocation() {
+    private void moveLocation()throws MapControlException {
         VehicleView vehicleview = new VehicleView();
         vehicleview.display();
         DifferentLocationView moveView = new DifferentLocationView();

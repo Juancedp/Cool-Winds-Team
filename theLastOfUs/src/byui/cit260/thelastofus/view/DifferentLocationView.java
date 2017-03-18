@@ -7,6 +7,9 @@ package byui.cit260.thelastofus.view;
 
 import java.util.Scanner;
 import byui.cit260.thelastofus.control.MapControl;
+import byui.cit260.thelastofus.exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Karl
@@ -24,11 +27,24 @@ public class DifferentLocationView extends View {
      */
     @Override
      public boolean doAction(String value) {
-         double distance = Double.parseDouble(value);
+         double distance = 0;
+         try {
+             //parse and convert number from text to double
             
-    double[] timeDistance = MapControl.differentLocation(distance, 5);
+             distance = Double.parseDouble(value);
+            } catch (NumberFormatException nf) {
+                System.out.println("\nyou must enter a valid number."
+                                  +"try again or enter Q to quit");
+            }
+    double[] timeDistance = {0,0};
+        try {
+            MapControl.differentLocation(distance, 5);
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
      System.out.println("You made it. It took "+timeDistance[0]+" hours"
              + "\nTotal Distance traveled : "+timeDistance[1]);
+     
  return true;
     }
 

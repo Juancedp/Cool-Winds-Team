@@ -22,9 +22,15 @@ public class TheLastOfUs {
      */
     public static void main(String[] args) {
         StartProgramView StartProgramView   = new StartProgramView();
-        StartProgramView.display();
+        try {
+            //create StartProgramView and start the program
+           StartProgramView.display();
+        } catch (Throwable te){
+           System.out.println(te.getMessage());
+           te.printStackTrace();
+           StartProgramView.display();
+           }
     }
-
     public static Game getCurrentGame() {
         return currentGame;
     }
