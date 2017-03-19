@@ -8,8 +8,10 @@ package byui.cit260.thelastofus.view;
 import static byui.cit260.thelastofus.control.ItemControl.additemsUsed;
 import byui.cit260.thelastofus.control.MapControl;
 import byui.cit260.thelastofus.control.VehicleControl;
+import byui.cit260.thelastofus.control.PlayerControl;
 import byui.cit260.thelastofus.exceptions.MapControlException;
 import byui.cit260.thelastofus.exceptions.VehicleControlException;
+import byui.cit260.thelastofus.exceptions.PlayerControlException;
 import byui.cit260.thelastofus.model.Game;
 import byui.cit260.thelastofus.model.Item;
 import byui.cit260.thelastofus.model.Location;
@@ -66,7 +68,11 @@ public class GameMenuView extends View {
         }
                 break;
             case "H": //check health conditions
-                this.healthCheck();
+                try{
+                    this.healthCheck();
+                } catch (PlayerControlException ex) {
+            System.out.println(ex.getMessage());
+        }
                 break;
            
             default:
@@ -137,8 +143,10 @@ public class GameMenuView extends View {
         System.out.println("Your vehicle got "+milesPerGallon+" Miles per Gallon.");
     }
 
-    private void healthCheck() {
-        System.out.println("*** healthCheck function called ***");
+    private void healthCheck() throws PlayerControlException{  
+        PlayerControl PlayerControl = new PlayerControl();
+        double health = PlayerControl.healthPlayer(false, true, 0, 0);      
+        System.out.println("health: "+health);
     }
     }
     
