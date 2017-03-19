@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.VehicleControlException;
 import java.util.ArrayList;
 
 public class VehicleControl{
@@ -22,16 +23,16 @@ private static ArrayList<Double>milesPerGalon = new ArrayList<>();
  /*
  * @author Karl
  */
-  public double milesPerGalon(int gasused, int milesTravel, int endMiles, int startMiles){
+  public double milesPerGalon(int gasused, int milesTravel, int endMiles, int startMiles) throws VehicleControlException{
 
         if (startMiles == 0){
-         return -1;
+         throw new VehicleControlException("Starting miles can't be 0");
     }
         if (endMiles == 0){
-        return 1;
+        throw new VehicleControlException("ending miles can't be 0");
     }
         if (gasused == 0){
-        return -1;
+        throw new VehicleControlException("gas used can't be 0");
     }
    milesTravel = endMiles - startMiles;
    int milesPerGalon = milesTravel / gasused;

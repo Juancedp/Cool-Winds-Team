@@ -7,7 +7,9 @@ package byui.cit260.thelastofus.view;
 
 import static byui.cit260.thelastofus.control.ItemControl.additemsUsed;
 import byui.cit260.thelastofus.control.MapControl;
+import byui.cit260.thelastofus.control.VehicleControl;
 import byui.cit260.thelastofus.exceptions.MapControlException;
+import byui.cit260.thelastofus.exceptions.VehicleControlException;
 import byui.cit260.thelastofus.model.Game;
 import byui.cit260.thelastofus.model.Item;
 import byui.cit260.thelastofus.model.Location;
@@ -59,7 +61,7 @@ public class GameMenuView extends View {
                 //move to new location
                 this.moveLocation();
             } catch (MapControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
         }
                 break;
@@ -125,6 +127,14 @@ public class GameMenuView extends View {
         vehicleview.display();
         DifferentLocationView moveView = new DifferentLocationView();
         moveView.display();
+        VehicleControl vehicleControl = new VehicleControl();
+        double milesPerGallon=0;
+        try {
+            milesPerGallon = vehicleControl.milesPerGalon(5,10,100,7);
+        } catch (VehicleControlException ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.out.println("Your vehicle got "+milesPerGallon+" Miles per Gallon.");
     }
 
     private void healthCheck() {
