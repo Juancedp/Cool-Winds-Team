@@ -5,22 +5,28 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.PlayerControlException;
+
 /**
  *
  * @author Karl
  */
 public class PlayerControl {
-    
-    public double healthPlayer (boolean infected, boolean wounded, int timeInfected, int timeWounded){
+
+      
+    public double healthPlayer (boolean infected, boolean wounded, int timeInfected, int timeWounded) throws PlayerControlException{
         double health=100;
         if (timeInfected < 0 || timeWounded < 0){
-            return -1;
+            throw new PlayerControlException("Infection time can not be negative"
+                                            +"Start again");
     }
 	if (infected == true && timeInfected == 0){
-		return -1;
+		throw new PlayerControlException ("if you have no time infected"
+                                                 +"then you can not infected again");
              }
 	if (wounded == true && timeWounded == 0){
-		return -1;
+		throw new PlayerControlException("if you have no time wounded"
+                                                +"you can not wonded again");
     }
 	if (infected == false && wounded == false){
 		health = 1.00*100;
