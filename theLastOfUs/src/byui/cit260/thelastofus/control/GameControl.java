@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.GameControlException;
 import byui.cit260.thelastofus.model.Game;
 import byui.cit260.thelastofus.model.Item;
 import byui.cit260.thelastofus.model.ItemList;
@@ -14,6 +15,10 @@ import byui.cit260.thelastofus.model.Player;
 import byui.cit260.thelastofus.model.Scene;
 import byui.cit260.thelastofus.model.SceneType;
 import byui.cit260.thelastofus.model.Vehicle;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import thelastofus.TheLastOfUs;
 
 /**
@@ -55,10 +60,24 @@ return player;
        MapControl.characterStartLocation(map);
     }
 
-    public static void saveGame() {
-        System.out.println("****saveGame function called ***");
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+       try (FileOutputStream fops = new FileOutputStream(filePath)){
+           ObjectOutputStream output = new ObjectOutputStream(fops);
+           output.writeObject(game);
+       }catch (Exception e){
+           throw new GameControlException(e.getMessage());
+       }
     }
-
+    public static void getSavedGame(String filePath)throws GameControlException{
+       Game game = null;
+       try (FileInputStream fips = new FileInputStream(filePath)){
+           ObjectInputStream input = new ObjectInputStream(fips);
+           game=(Game) input.readObject(); //read game object from file
+       }catch (Exception e){
+           throw new GameControlException(e.getMessage());
+       }//close output file
+       TheLastOfUs.setCurrentGame(game);
+    }
     private static Item[] createItemList() {
         //create array of items
         Item[] itemList = new Item[4];

@@ -41,19 +41,21 @@ public class IntroductionView extends View {
         value = value.toUpperCase();
         switch (value){
                 case "G":
-                    System.out.println("You are a bit groggy, but otherwise ok."
+                    this.console.println("You are a bit groggy, but otherwise ok."
                             + "\nThis room is very messy, as if there was an"
                             + "intense struggle");
                     GameMenuView gameMenu = new GameMenuView();
                                          gameMenu.display();
                      break;
                 case "B":
-                    System.out.println("That was an unwise decision. When you"
+                    this.console.println("That was an unwise decision. When you"
                             + "awake you are surrounded by zombies \nand have"
                             + "an unquenchable desire for braaains.");
+                    MainMenuView main = new MainMenuView();
+                    main.display();
                     break;
                 
     }
-        return false;
+        return true;
     }
 }

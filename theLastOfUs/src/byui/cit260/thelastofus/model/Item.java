@@ -5,11 +5,13 @@
  */
 package byui.cit260.thelastofus.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Karl
  */
-public class Item {
+public class Item implements Serializable {
     private String description;
     private int quantity;
 

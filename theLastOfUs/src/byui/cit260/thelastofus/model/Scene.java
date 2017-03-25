@@ -5,11 +5,13 @@
  */
 package byui.cit260.thelastofus.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Karl
  */
-public class Scene {
+public class Scene implements Serializable {
     private String description;
 
     public String getDescription() {

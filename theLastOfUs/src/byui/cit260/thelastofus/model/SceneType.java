@@ -5,11 +5,13 @@
  */
 package byui.cit260.thelastofus.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Karl
  */
-public enum SceneType {
+public enum SceneType implements Serializable {
     start,
     hospital,
     forest,

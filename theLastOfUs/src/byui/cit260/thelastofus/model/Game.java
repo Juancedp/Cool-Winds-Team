@@ -5,11 +5,13 @@
  */
 package byui.cit260.thelastofus.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Karl
  */
-public class Game {
+public class Game implements Serializable {
     private Player player;
     private Map map;
     private Item[] items;

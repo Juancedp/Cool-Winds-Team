@@ -63,7 +63,7 @@ public class GameMenuView extends View {
                 //move to new location
                 this.moveLocation();
             } catch (MapControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
         }
                 break;
@@ -71,12 +71,12 @@ public class GameMenuView extends View {
                 try{
                     this.healthCheck();
                 } catch (PlayerControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
                 break;
            
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -87,11 +87,11 @@ public class GameMenuView extends View {
         Game game =TheLastOfUs.getCurrentGame();
         Item[] items = game.getItems();
         
-        System.out.println("\n  Resources available");
+        this.console.println("\n  Resources available");
         line = new StringBuilder("                                 ");
         line.insert(0, "Description");
         line.insert(20, "In Stock");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         //for each item
         for (Item item : items){
@@ -99,33 +99,33 @@ public class GameMenuView extends View {
             line.insert(0, item.getDescription());
             line.insert(23, item.getQuantity());
             //display
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
         double itemsRemained=additemsUsed(16);
-        System.out.println(itemsRemained);
+        this.console.println(itemsRemained);
     }
 
     private void viewMap(Map map, Location location) {
         
         Location[][] locations = map.getLocation();
              
-       System.out.println("Zombie map");
+       this.console.println("Zombie map");
        
        for (Location[] row:locations){
-           System.out.println("---------------------------------------------------");
-           System.out.println("\n"+"1");
+           this.console.println("---------------------------------------------------");
+           this.console.println("\n"+"1");
            for(Location[] column:locations){
-               System.out.println("|");
+               this.console.println("|");
                if(location.isVisited()){
-                   System.out.println("??");
+                   this.console.println("??");
                }
-               System.out.println("|");
+               this.console.println("|");
            }
        }
     }
 
     private void explore() {
-        System.out.println("*** explore function called ***");
+        this.console.println("*** explore function called ***");
     }
 
     private void moveLocation()throws MapControlException {
@@ -138,15 +138,15 @@ public class GameMenuView extends View {
         try {
             milesPerGallon = vehicleControl.milesPerGalon(5,10,100,7);
         } catch (VehicleControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
-        System.out.println("Your vehicle got "+milesPerGallon+" Miles per Gallon.");
+        this.console.println("Your vehicle got "+milesPerGallon+" Miles per Gallon.");
     }
 
     private void healthCheck() throws PlayerControlException{  
         PlayerControl PlayerControl = new PlayerControl();
         double health = PlayerControl.healthPlayer(false, true, 0, 0);      
-        System.out.println("health: "+health);
+        this.console.println("health: "+health);
     }
     }
     

@@ -31,6 +31,7 @@ public class MainMenuView extends View{
                 + "\n               Zombie Menu"
                 + "\nN - Start new game "
                 + "\nR - Restart existing game"
+                 + "\nS - Save game"
                 + "\nH - Help! I keep dying! "
                 + "\nQ – Quit  (you wimp...) "
                 + "\nE - End the game"
@@ -54,11 +55,14 @@ public class MainMenuView extends View{
             case "H": //display help menu
                 this.displayHelpMenu();
                 break;
+            case "S"://save the game
+                this.saveGame();
+                break;
             case "E": //EndGameView
                 this.displayEndgameView(); 
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -73,8 +77,15 @@ public class MainMenuView extends View{
         intro.display();
     }
 
-    private void restartExistingGame() {
-        System.out.println("*** restartExistingGame function called ***");
+    private void saveGame() {
+        this.console.println("\nEnter the file name to save to");
+        String filePath = this.getInput();
+        try{
+            //save game to specified file
+            GameControl.saveGame(TheLastOfUs.getCurrentGame(), filePath);
+        }catch (Exception e){
+            ErrorView.display("MainMenuView",e.getMessage());
+        }
     }
 
     private void displayHelpMenu() {
@@ -88,5 +99,16 @@ public class MainMenuView extends View{
         //display endgameview
         endview.display();
     }
-    
+    private void restartExistingGame(){
+        this.console.println("\nEnter the file name to load from");
+        String filePath = this.getInput();
+        try{
+            //save game to specified file
+            GameControl.getSavedGame(filePath);
+        }catch (Exception e){
+            ErrorView.display("MainMenuView",e.getMessage());
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
 }

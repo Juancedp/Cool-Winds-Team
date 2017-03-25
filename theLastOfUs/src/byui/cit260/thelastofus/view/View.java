@@ -5,7 +5,13 @@
  */
 package byui.cit260.thelastofus.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -13,7 +19,8 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface{
     protected String displayMessage;
-    
+    protected final BufferedReader keyboard= TheLastOfUs.getInFile();
+    protected final PrintWriter console = TheLastOfUs.getOutFile();
     public View(){
     }
     public View(String message){
@@ -36,18 +43,22 @@ public abstract class View implements ViewInterface{
     }
     @Override
     public String getInput(){
-        Scanner keyboard = new Scanner(System.in); //get infile keyboard
+        
         String value = null;//get input
         boolean valid = false; //initialize to false
-        while(!valid){ //loop while not valid
-        System.out.println("\n"+this.displayMessage);
-        value = keyboard.nextLine(); //get next line typed in
-        value = value.trim(); //trim out leading/trailing blanks
-        if(value.length()< 1 ){//value is blank
-           System.out.println("\nInvalid value: value cannot be blank");
-           continue;
-        }
-        break; //end loop
+        while(!valid){ try {
+            //loop while not valid
+            this.console.println("\n"+this.displayMessage);
+            value = this.keyboard.readLine(); //get next line typed in
+            value = value.trim(); //trim out leading/trailing blanks
+            if(value.length()< 1 ){//value is blank
+                this.console.println("\nInvalid value: value cannot be blank");
+                continue;
+            }
+            break; //end loop
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),"error reading input:"+ex.getMessage());
+            }
         }
         return value; //return value entered
     }

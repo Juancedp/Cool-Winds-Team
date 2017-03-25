@@ -52,7 +52,7 @@ public HelpMenuView(){
                 this.deliveringResourcesToWarehouse();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -62,12 +62,12 @@ public HelpMenuView(){
 
 
     private void whatIsTheGoalOfTheGame() {
-        System.out.println("The goal of this game is survival.");
+        this.console.println("The goal of this game is survival.");
         
     }
 
     private void howToMove() {
-        System.out.println("You have various abandoned vehicles to choose from,"
+        this.console.println("You have various abandoned vehicles to choose from,"
                 + "but remember, you need resources in order to survive."
                 + "Zombies don't need food, but you do.");
     }

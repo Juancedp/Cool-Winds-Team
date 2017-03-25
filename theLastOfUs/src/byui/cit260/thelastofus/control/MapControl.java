@@ -9,6 +9,7 @@ import byui.cit260.thelastofus.exceptions.MapControlException;
 import byui.cit260.thelastofus.model.Map;
 import byui.cit260.thelastofus.model.Scene;
 import byui.cit260.thelastofus.model.SceneType;
+import byui.cit260.thelastofus.view.View;
 import java.util.ArrayList;
 
 /**
@@ -62,7 +63,7 @@ public class MapControl {
         return map;
      }
 
-    static void characterStartLocation(Map map) {
+     static void characterStartLocation(Map map) {
         System.out.println("**** characterStartingLocation function called ***");
     }
 

@@ -32,23 +32,23 @@ public class VehicleView extends View {
                 this.chooseMotorcycle();
                 break;
              default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break; 
         }
              return true;
         }
 
     private void chooseCar() {
-        System.out.println("Choose the car or perrish");
+        this.console.println("Choose the car or perrish");
       
     }
 
     private void chooseTruck() {
-        System.out.println("If you choose the truck you...");
+        this.console.println("If you choose the truck you...");
     }
 
     private void chooseMotorcycle() {
-       System.out.println("Choose the motorcycle and keep runing");
+       this.console.println("Choose the motorcycle and keep runing");
    
     }
     

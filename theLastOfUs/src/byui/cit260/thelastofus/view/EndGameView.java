@@ -6,6 +6,7 @@
 package byui.cit260.thelastofus.view;
 
 import byui.cit260.thelastofus.control.GameControl;
+import thelastofus.TheLastOfUs;
 
 /**
  *
@@ -24,7 +25,15 @@ public class EndGameView extends View{
         value = value.toUpperCase();
         switch (value){
                 case "S":
-                    GameControl.saveGame();
+                    this.console.println("\nEnter the file name to save to");
+        String filePath = this.getInput();
+        try{
+            //save game to specified file
+            GameControl.saveGame(TheLastOfUs.getCurrentGame(), filePath);
+        }catch (Exception e){
+            ErrorView.display("MainMenuView",e.getMessage());
+        }
+                    
                     break;
                 case "A":
                     IntroductionView intro = new IntroductionView();
