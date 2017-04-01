@@ -38,6 +38,7 @@ public class GameMenuView extends View {
                 + "\nM – Move to new location "
                 + "\nH – Check your health conditions "
                 + "\nQ – Save and Quit Game");
+              
         
     }
     

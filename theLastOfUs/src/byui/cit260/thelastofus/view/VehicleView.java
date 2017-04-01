@@ -15,7 +15,8 @@ public class VehicleView extends View {
              + "\nchoose one before you lose your brain"
              + "\nC - Choose Car"
              + "\nT - Choose Truck"
-             + "\nM - Choose Motorcycle");  
+             + "\nM - Choose Motorcycle"
+             + "\nL - Vehicle Report"); 
 }
     @Override
     public boolean doAction(String value){
@@ -30,6 +31,9 @@ public class VehicleView extends View {
                 break;
             case "M": //Choose motorcycle 
                 this.chooseMotorcycle();
+                break;
+            case "L": //Choose report
+                this.chooseReport();
                 break;
              default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
@@ -50,6 +54,11 @@ public class VehicleView extends View {
     private void chooseMotorcycle() {
        this.console.println("Choose the motorcycle and keep runing");
    
+    }
+
+    private void chooseReport() {
+     VehicleReportView vehiclereportview = new VehicleReportView();
+     vehiclereportview.display ();
     }
     
 }
