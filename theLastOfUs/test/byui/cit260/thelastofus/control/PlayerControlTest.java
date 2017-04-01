@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.PlayerControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class PlayerControlTest {
      * Test of healthPlayer method, of class PlayerControl.
      */
     @Test
-    public void testHealthPlayer() {
+    public void testHealthPlayer() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = false;
         boolean wounded = false;
@@ -34,7 +35,7 @@ public class PlayerControlTest {
         // TODO review the generated test code and remove the default call to fail.
         
     }
-    public void testHealthPlayer2() {
+    public void testHealthPlayer2() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = true;
@@ -47,7 +48,7 @@ public class PlayerControlTest {
         // TODO review the generated test code and remove the default call to fail.
         
 }
- public void testHealthPlayer3() {
+ public void testHealthPlayer3() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = false;
@@ -59,7 +60,7 @@ public class PlayerControlTest {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
  } 
-public void testHealthPlayer4() {
+public void testHealthPlayer4() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = false;
         boolean wounded = true;
@@ -71,7 +72,7 @@ public void testHealthPlayer4() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer5() {
+public void testHealthPlayer5() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = true;
@@ -83,7 +84,7 @@ public void testHealthPlayer5() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer6() {
+public void testHealthPlayer6() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = false;
@@ -95,7 +96,7 @@ public void testHealthPlayer6() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer7() {
+public void testHealthPlayer7() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = false;
         boolean wounded = false;
@@ -107,7 +108,7 @@ public void testHealthPlayer7() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer8() {
+public void testHealthPlayer8() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = false;
         boolean wounded = false;
@@ -119,7 +120,7 @@ public void testHealthPlayer8() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer9() {
+public void testHealthPlayer9() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = true;
@@ -131,7 +132,7 @@ public void testHealthPlayer9() {
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
 }
-public void testHealthPlayer10() {
+public void testHealthPlayer10() throws PlayerControlException {
         System.out.println("healthPlayer");
         boolean infected = true;
         boolean wounded = false;

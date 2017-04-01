@@ -67,6 +67,7 @@ return player;
        }catch (Exception e){
            throw new GameControlException(e.getMessage());
        }
+    
     }
     public static void getSavedGame(String filePath)throws GameControlException{
        Game game = null;
