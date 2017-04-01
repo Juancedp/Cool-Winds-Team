@@ -27,6 +27,7 @@ public class TheLastOfUs {
     private static PrintWriter outFile =null;
     private static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
+    private static PrintWriter reportFile = null;
     /**
      * @param args the command line arguments
      */
@@ -37,6 +38,7 @@ public class TheLastOfUs {
             TheLastOfUs.outFile = new PrintWriter(System.out, true);
             String filePath = "log.txt";
             TheLastOfUs.logFile = new PrintWriter(filePath);
+            TheLastOfUs.reportFile = new PrintWriter("reports.txt");
             //create StartProgramView and start the program
             StartProgramView StartProgramView   = new StartProgramView();
            StartProgramView.display();
@@ -97,6 +99,14 @@ public class TheLastOfUs {
 
     public static void setLogFile(PrintWriter logFile) {
         TheLastOfUs.logFile = logFile;
+    }
+
+    public static PrintWriter getReportFile() {
+        return reportFile;
+    }
+
+    public static void setReportFile(PrintWriter reportFile) {
+        TheLastOfUs.reportFile = reportFile;
     }
     
 }
