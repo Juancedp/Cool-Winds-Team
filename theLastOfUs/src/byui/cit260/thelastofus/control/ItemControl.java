@@ -5,6 +5,7 @@
  */
 package byui.cit260.thelastofus.control;
 
+import byui.cit260.thelastofus.exceptions.ItemControlException;
 import java.util.ArrayList;
 
 /**
@@ -23,13 +24,17 @@ public class ItemControl {
        }
        return total;
    }
-    public String Itemtype ( int gun, int stone, int knife){
+    public String Itemtype ( int gun, int stone, int knife)
+        throws ItemControlException{
+        
         if (gun == 0 ) { 
-                return "knife";}
+               throw new ItemControlException(" you out of gun bullets");
+        }
         if (stone == 0) {
-                return "knife";}
+                throw new ItemControlException("you don't have more stones");
+        }
         if (gun == 0 && stone ==0){
-            return "knife";
+                throw new ItemControlException("you need to use the knife");
         }
 return "gun";
 }
