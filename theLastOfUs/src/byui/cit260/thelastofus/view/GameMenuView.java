@@ -32,9 +32,9 @@ public class GameMenuView extends View {
     }
     
     public GameMenuView(){
-        super("\nR – Search for resources"
+        super("\nR – View current resources"
                 + "\nV - View map "
-                + "\nE - Explore Location "
+                
                 + "\nM – Move to new location "
                 + "\nH – Check your health conditions "
                 + "\nQ – Save and Quit Game");
@@ -56,9 +56,7 @@ public class GameMenuView extends View {
             case "V": //view the map
                 this.viewMap(map,location);
                 break;
-            case "E": //explore current location
-                this.explore();
-                break;
+            
             case "M": {
             try {
                 //move to new location
@@ -115,7 +113,7 @@ public class GameMenuView extends View {
        for (Location[] row:locations){
            this.console.println("---------------------------------------------------");
            this.console.println("\n"+"1");
-           for(Location[] column:locations){
+           for(Location column:row){
                this.console.println("|");
                if(location.isVisited()){
                    this.console.println("??");
@@ -125,9 +123,7 @@ public class GameMenuView extends View {
        }
     }
 
-    private void explore() {
-        this.console.println("*** explore function called ***");
-    }
+   
 
     private void moveLocation()throws MapControlException {
         VehicleView vehicleview = new VehicleView();

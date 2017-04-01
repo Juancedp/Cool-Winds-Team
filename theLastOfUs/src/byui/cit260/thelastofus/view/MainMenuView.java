@@ -34,7 +34,7 @@ public class MainMenuView extends View{
                  + "\nS - Save game"
                 + "\nH - Help! I keep dying! "
                 + "\nQ – Quit  (you wimp...) "
-                + "\nE - End the game"
+                 + "\nI - Item Report"
                 + "\n--------------------------------------");
     }
         
@@ -58,8 +58,8 @@ public class MainMenuView extends View{
             case "S"://save the game
                 this.saveGame();
                 break;
-            case "E": //EndGameView
-                this.displayEndgameView(); 
+            case "I":
+                this.displayItemReportView();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
@@ -94,11 +94,6 @@ public class MainMenuView extends View{
         helpMenu.display();
     }
 
-    private void displayEndgameView() {
-        EndGameView endview = new EndGameView();
-        //display endgameview
-        endview.display();
-    }
     private void restartExistingGame(){
         this.console.println("\nEnter the file name to load from");
         String filePath = this.getInput();
@@ -110,5 +105,10 @@ public class MainMenuView extends View{
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
+    }
+
+    private void displayItemReportView() {
+        ItemReportView itemReport = new ItemReportView();
+        itemReport.display();
     }
 }

@@ -6,7 +6,9 @@
 package byui.cit260.thelastofus.control;
 
 import byui.cit260.thelastofus.exceptions.MapControlException;
+import byui.cit260.thelastofus.model.Location;
 import byui.cit260.thelastofus.model.Map;
+import byui.cit260.thelastofus.model.Player;
 import byui.cit260.thelastofus.model.Scene;
 import byui.cit260.thelastofus.model.SceneType;
 import byui.cit260.thelastofus.view.View;
@@ -48,6 +50,7 @@ public class MapControl {
         }
     double time=distance/60;
     double totalDistance = adddistanceTraveled(distance);
+   
     double timeDistance[]={time, totalDistance};
     return timeDistance;
 

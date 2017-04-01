@@ -23,9 +23,6 @@ public HelpMenuView(){
                + "\n-------------------------------------------------"
                + "\nG - What is the goal of the game?                "
                + "\nM - How to move                                  "
-               + "\nT - Estimating the amount of resources           "
-               + "\nJ - Harvesting resources                         "
-               + "\nD - Delivering resources to warehouse            "
                + "\nE - Exit  (Run Cry Baby....)                     "
                + "\n-------------------------------------------------");
 }
@@ -42,15 +39,7 @@ public HelpMenuView(){
             case "M": //How to move
                 this.howToMove();
                 break;
-            case "T": //Estimating the amount of resources 
-                this.estimatingTheAmountOfResources();
-                break;
-            case "J": //Harvesting resources
-                this.harvestinGresources();
-                break;
-            case "D": //Delivering resources to warehouse
-                this.deliveringResourcesToWarehouse();
-                break;
+            
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Invalid selection *** Try again");
                 break;
@@ -70,18 +59,6 @@ public HelpMenuView(){
         this.console.println("You have various abandoned vehicles to choose from,"
                 + "but remember, you need resources in order to survive."
                 + "Zombies don't need food, but you do.");
-    }
-
-    private void estimatingTheAmountOfResources() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void harvestinGresources() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void deliveringResourcesToWarehouse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
